@@ -1,5 +1,6 @@
 import useLoggin from "../hooks/useLogin";
 import { useForm } from "../hooks/useForm";
+import Swal from 'sweetalert2';
 
 const initialState = { username: "", password: "" };
 const Login = ({setUser, saveUser}) => {
@@ -11,10 +12,20 @@ const Login = ({setUser, saveUser}) => {
     e.preventDefault();
     const validationStatus = await useLoggin(username, password);
     if(validationStatus.hasOwnProperty('error')){
-      alert(validationStatus.error);
+      //alert(validationStatus.error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: validationStatus.error
+      })
       reset();
     } else {
-      alert("Se ha logueado con exito");
+      //alert("Se ha logueado con exito");
+      Swal.fire(
+        'Felicidades!',
+        'Se ha logueado con exito!',
+        'success'
+      )
       saveUser({...validationStatus});
       setUser({...validationStatus});
     }

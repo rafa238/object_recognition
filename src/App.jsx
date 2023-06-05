@@ -5,6 +5,7 @@ import Home from './components/Home'
 import { useState } from 'react'
 import { Navbar } from './components/Navbar'
 import { useLocalStorage } from './hooks/useLocalStorage'
+import { Images } from './components/Images'
 
 function App() {
   const {saveItem, getItem, deleteItem} = useLocalStorage("user");
@@ -25,6 +26,7 @@ function App() {
       <Routes>
           <Route exact path="/" element={<Home username={user.username}/>}/>
           <Route exact path="/login" element={<Login/>}/>
+          <Route exact path="/watch/:id/:edit" element={<Images/>} />
           <Route path="*" render={() => <h1>Error 404</h1>} />
       </Routes>
     </BrowserRouter>

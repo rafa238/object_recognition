@@ -15,7 +15,8 @@ export const Navbar = ({onLogout}) => {
                             <Link className='nav-link active' to="/" > Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Iniciar reconocimiento</a>
+                            <Link className='nav-link active' to="/recognition" >Recognition</Link>
+                            
                         </li>
                     </ul>
                     <div className="d-grid gap-2 d-md-flex justify-content-md-end">

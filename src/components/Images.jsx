@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useImage } from '../hooks/useImage';
-import { AddModal } from './AddModal';
 import Swal from 'sweetalert2';
 const BASE_URL = "http://localhost:8080/deteObjetos/";
 

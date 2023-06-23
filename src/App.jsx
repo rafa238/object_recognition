@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { Navbar } from './components/Navbar'
 import { useLocalStorage } from './hooks/useLocalStorage'
 import { Images } from './components/Images'
+import { Recognition } from './components/Recognition'
 
 function App() {
   const {saveItem, getItem, deleteItem} = useLocalStorage("user");
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/" element={<Home username={user.username}/>}/>
           <Route exact path="/login" element={<Login/>}/>
           <Route exact path="/watch/:id/:edit" element={<Images/>} />
+          <Route exact path="/recognition" element={<Recognition/>} />
           <Route path="*" render={() => <h1>Error 404</h1>} />
       </Routes>
     </BrowserRouter>

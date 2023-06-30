@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react";
 
-export const useImage = (id) => {
+export const useImage = (id=1) => {
     const [images, setImages] = useState([]);
-    
+    const [allImages, setAllImages] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:8080/deteObjetos/ListImages?id=${id}`)
         .then(response => (response.json()))
         .then(response => {
             setImages(response);
         });
-    }, [images]); 
+
+        
+        fetch(`http://localhost:8080/deteObjetos/GetAllImages`)
+        .then(response => (response.json()))
+        .then(response => {
+            setAllImages(response);
+        });
+    }, [images, allImages]); 
 
     const onAddImage = async (file) => {
         const formData = new FormData();
@@ -75,6 +82,7 @@ export const useImage = (id) => {
         images,
         onAddImage,
         onEditImage,
-        onEliminateImage
+        onEliminateImage,
+        allImages,
     }
 }
